@@ -1,0 +1,12 @@
+---
+# vars file for gitlab-runner
+
+GITLAB_EXTERNAL_URL: 'https://gitlab.com/'
+
+GITLAB_PROJECT_REGISTRATION_TOKEN: 'xxxx'
+
+SRV_PATH: '/data/srv'
+
+GITLAB_RUNNER_NAME: 'gitlab-runner-001'
+
+GITLAB_RUNNER_DOCKER_IMAGE: 'gengxiankun/php:7.1-pc-latest'

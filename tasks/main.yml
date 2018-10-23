@@ -1,19 +1,19 @@
 ---
 # tasks file for gitlab-runner
 - name: 配置相关参数
-  template: src=docker-compose.yaml.j2 dest=/data/script/gitlab-runner/docker-compose.yaml
+  template: src=docker-compose.yaml.j2 dest=/tmp/docker-compose-{{ GITLAB_RUNNER_NAME }}.yaml
 
 - name: run docker-compose
-  shell: "docker-compose -f /data/script/gitlab-runner/docker-compose.yaml up -d"
+  shell: "docker-compose -f /tmp/docker-compose-{{ GITLAB_RUNNER_NAME }}.yaml up -d"
 
 - name: 注册 gitlab-runner
-  shell: "docker exec -it gitlab-runner gitlab-runner register \
+  shell: "docker exec -t {{ GITLAB_RUNNER_NAME }} gitlab-runner register \
   --non-interactive \
   --executor 'docker' \
   --docker-image {{ GITLAB_RUNNER_DOCKER_IMAGE }} \
   --url '{{ GITLAB_EXTERNAL_URL }}' \
   --registration-token '{{ GITLAB_PROJECT_REGISTRATION_TOKEN }}' \
-  --description 'docker-runner' \
+  --description '{{ GITLAB_RUNNER_NAME }}' \
   --tag-list 'docker' \
   --run-untagged \
   --locked='false'"
