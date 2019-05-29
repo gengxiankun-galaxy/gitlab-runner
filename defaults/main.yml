@@ -1,2 +1,4 @@
 ---
 # defaults file for gitlab-runner
+
+OPT_PATH: '/opt/gengxiankun-galaxy'

@@ -1,16 +1,19 @@
 GITLAB-RUNNER
 =========
 
-Requirements
+Deploy the gitlab server running under the container via ansible.
+
+Dependencies
 ------------
 
-CENTOS 7+
+- [Docker](https://github.com/gengxiankun-galaxy/docker)
 
 Role Variables
 --------------
 
 parameter | description
 ------------ | -------------
+OPT_PATH | Service deployment directory
 SRV_PATH | 配置目录
 GITLAB_EXTERNAL_URL | 
 GITLAB_PROJECT_REGISTRATION_TOKEN |
@@ -22,9 +25,14 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: gitlab-runner, x: 1 }
+         - { role: gengxiankun.gitlab-runner, x: 1 }
 
 License
 -------
 
 BSD
+
+Author Information
+------------------
+
+This role was created in 2019 by Xiankun Geng, Learn more about the author's role in [galaxy](https://galaxy.ansible.com/gengxiankun).
