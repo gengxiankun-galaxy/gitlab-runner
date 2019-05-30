@@ -3,6 +3,11 @@ GITLAB-RUNNER
 
 Deploy the gitlab server running under the container via ansible.
 
+Installation
+------------
+
+`ansible-galaxy install gengxiankun.gitlab-runner`
+
 Dependencies
 ------------
 
